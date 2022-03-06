@@ -23,9 +23,9 @@ public class App {
         age.append(66);
 
         age.insertAfter(5,100);
+        age.insertBefore(100 , 99);
 //
         System.out.println(age.toString());
 //
-        System.out.println("AYA");
     }
 }

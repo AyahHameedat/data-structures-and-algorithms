@@ -35,21 +35,34 @@ public class LinkedList<T> {
     }
 
 
-    public void insertAfter(T oldValue, T newValue)
-    {
-        Node prevNode = new Node(oldValue);
-//        oldValue = headValue.nextValue;
-        //Node prevNode = new Node(value);
-        if (prevNode == null)
-        {
-            System.out.println("HI, Its null");
-        }
-        System.out.println("YOSHI");
-        Node newNode = new Node(newValue);
-        newNode.nextValue = prevNode.nextValue;
-        prevNode.nextValue = newNode;
+    public void insertAfter(T value, T newValue) {
+        Node pointer = this.headValue;
+        while (pointer != null) {
+            if (pointer.value == value) {
+                Node newNode = new Node(newValue);
+                newNode.nextValue = pointer.nextValue;
+                pointer.nextValue = newNode;
+                break;
+            }
+            pointer = pointer.nextValue;
 
+        }
     }
+
+        public void insertBefore(T value, T newValue)
+        {
+            Node pointer = this.headValue;
+            while (pointer != null) {
+                if (pointer.nextValue.value == value) {
+                    Node newNode = new Node(newValue);
+                    newNode.nextValue = pointer.nextValue;
+                    pointer.nextValue = newNode;
+                    break;
+                }
+                pointer = pointer.nextValue;
+
+            }
+        }
 
 
     public String toString()
@@ -62,7 +75,7 @@ public class LinkedList<T> {
             pointer = pointer.nextValue;//50
         }
 
-        return result;
+        return result + "X";
     }
 
 }
