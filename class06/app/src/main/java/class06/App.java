@@ -24,6 +24,8 @@ public class App {
 
         age.insertAfter(5,100);
         age.insertBefore(100 , 99);
+        age.insertBefore(99, 999);
+
 //
         System.out.println(age.toString());
 //
