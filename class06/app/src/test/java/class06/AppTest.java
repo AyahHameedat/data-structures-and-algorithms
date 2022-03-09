@@ -3,12 +3,54 @@
  */
 package class06;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+
+    App classUnderTest;
+    LinkedList classTest = new LinkedList();
+    LinkedList<Integer> age = new LinkedList<Integer>();
+
+
+    @Test
+    @DisplayName("append Test")
+    void append(){
+        age.append(5);
+        age.append(10);
+        age.append(20);
+        String list = "{5}->{10}->{20}->X";
+        String resString = age.toString();
+        assertEquals(list, resString);
     }
+
+
+    @Test
+    @DisplayName("insertAfter Test")
+    void insertAfter(){
+//        System.out.println(age.toString());
+        age.append(1);
+        age.append(2);
+        age.append(4);
+        age.insertAfter(2,3);
+        String list = "{1}->{2}->{3}->{4}->X";
+        String resString = age.toString();
+        assertEquals(list, resString);
+    }
+
+    @Test
+    @DisplayName("insertBefore Test")
+    void insertBefore(){
+        age.append(1);
+        age.append(2);
+        age.append(4);
+        age.insertBefore(4,3);
+        String list = "{1}->{2}->{3}->{4}->X";
+        String resString = age.toString();
+        assertEquals(list, resString);
+    }
+
+
+
 }

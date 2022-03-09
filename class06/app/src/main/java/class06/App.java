@@ -10,21 +10,41 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
-
         LinkedList<Integer> age = new LinkedList<Integer>();
-////        Integer value = 5;
-
+        //// Integer value = 5;
         age.insertValue(1);
         age.insertValue(2);
         age.insertValue(3);
-
+        /// {3}->{2}->{1}->X
         age.append(5);
         age.append(50);
         age.append(66);
+        ///result :  {3}->{2}->{1}->{5}->{50}->{66}->X
+
+
+
+
 
         age.insertAfter(5,100);
+        ///result :  {3}->{2}->{1}->{5}->{100}->{50}->{66}->X
+
+
+
+
+
+
+
         age.insertBefore(100 , 99);
         age.insertBefore(99, 999);
+        ///result :  {3}->{2}->{1}->{5}->{999}->{99}->{100}->{50}->{66}->X
+
+
+
+
+
+
+
+
 
 //
         System.out.println(age.toString());
