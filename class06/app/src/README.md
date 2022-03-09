@@ -16,8 +16,7 @@
 
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
-### Note: I will add it later. 
-
+![](./assets/class06.png)
 <br>
 
 
@@ -34,28 +33,9 @@
 
 ## Solution
 <!-- Show how to run your code, and examples of it in action -->
-```aidl
-package class06;
 
-public class LinkedList<T> {
-
-    Node headValue;
-
-    public LinkedList(){
-        this.headValue = headValue;
-    }
-
-    public void insertValue( T value ){
-        //Node pointer = this.headValue;
-        // head -> val / valNew -> Head.next(val) / head -> valNew
-
-//        this.headValue = null;
-        Node newValue = new Node(value);
-        newValue.nextValue = this.headValue;
-        this.headValue = newValue;
-    }
-
-    public void append(T value)
+```
+public void append(T value)
     {
         Node newValue = new Node(value);
         if(headValue == null) {
@@ -70,9 +50,10 @@ public class LinkedList<T> {
             tail.nextValue = newValue;
         }
     }
-
-
-    public void insertAfter(T value, T newValue) {
+```
+![](./assets/AppendTest.png)
+```
+public void insertAfter(T value, T newValue) {
         Node pointer = this.headValue;
         while (pointer != null) {
             if (pointer.value == value) {
@@ -85,8 +66,10 @@ public class LinkedList<T> {
 
         }
     }
-
-        public void insertBefore(T value, T newValue)
+```
+![](./assets/InsertAfterTest.png)
+```
+public void insertBefore(T value, T newValue)
         {
             Node pointer = this.headValue;
             while (pointer != null) {
@@ -98,24 +81,8 @@ public class LinkedList<T> {
                 }
                 pointer = pointer.nextValue;
 
-            }
+                }
         }
-
-
-    public String toString()
-    {
-        Node pointer = this.headValue;
-        String result = "";
-
-        while(pointer != null){
-            result += "{" + pointer.value + "}->" ;
-            pointer = pointer.nextValue;//50
-        }
-
-        return result + "X";
-    }
-
-}
-
-
 ```
+![](./assets/InsertBeforeTest.png)
+
