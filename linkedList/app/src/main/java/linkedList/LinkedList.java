@@ -8,7 +8,7 @@ public class LinkedList<T> {
         this.headValue = null;
     }
 
-    public void insertValue( T value ){
+    public void insertValue(T value ){
         //Node pointer = this.headValue;
         // head -> val / valNew -> Head.next(val) / head -> valNew
 
@@ -16,7 +16,6 @@ public class LinkedList<T> {
         Node newValue = new Node(value);
         newValue.nextValue = this.headValue;
         this.headValue = newValue;
-
     }
 
     //Boolean
@@ -33,7 +32,7 @@ public class LinkedList<T> {
         return false;
     }
 
-    public String tostring()
+    public String toString()
     {
         Node pointer = this.headValue;
         String result = "";
