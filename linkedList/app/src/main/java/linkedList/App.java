@@ -18,9 +18,10 @@ public class App {
         System.out.println(age.includesValue(5));
         System.out.println(age.includesValue(520));
 //
-        System.out.println(age.tostring());
+        System.out.println(age.toString());
 //
         System.out.println("AYA");
 
     }
+
 }

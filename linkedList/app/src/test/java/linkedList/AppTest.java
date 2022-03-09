@@ -3,12 +3,39 @@
  */
 package linkedList;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+
+    App classUnderTest;
+    LinkedList classTest = new LinkedList();
+        LinkedList<Integer> age = new LinkedList<Integer>();
+        boolean test1 = age.includesValue(2);
+        boolean test2 = age.includesValue(50);
+
+    @Test
+    @DisplayName("insertValue Test")
+    void insertValue() {
+        age.insertValue(2);
+        String list = "{2}->NULL";
+        String resString = age.toString();
+        assertEquals(list, resString);
     }
+
+    @Test
+    @DisplayName("includesValue Test")
+    void includesValue() {
+        boolean result = classTest.includesValue(2);
+        boolean result2 = classTest.includesValue(50);
+        assertEquals(test1, result);
+        assertEquals(test2, result2);
+    }
+
+
+
+
+
 }
