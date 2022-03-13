@@ -78,5 +78,20 @@ public class LinkedList<T> {
         return result + "X";
     }
 
+
+    public String toStringZipp()
+    {
+        Node pointer = this.headValue;
+        String result = "";
+
+        while(pointer != null){
+            result += "{" + pointer.value + "}->" ;
+            pointer = pointer.nextValue;//50
+        }
+
+        return result + "null";
+    }
+
+
 }
 
