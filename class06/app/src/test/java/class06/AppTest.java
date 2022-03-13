@@ -11,8 +11,11 @@ class AppTest {
 
     App classUnderTest;
     LinkedList classTest = new LinkedList();
+    App app = new App();
     LinkedList<Integer> age = new LinkedList<Integer>();
 
+    LinkedList<Integer> list1 = new LinkedList<Integer>();
+    LinkedList<Integer> list2 = new LinkedList<Integer>();
 
     @Test
     @DisplayName("append Test")
@@ -49,6 +52,22 @@ class AppTest {
         String list = "{1}->{2}->{3}->{4}->X";
         String resString = age.toString();
         assertEquals(list, resString);
+    }
+
+
+    @Test
+    @DisplayName("zipLists Test")
+    void zipLists(){
+        LinkedList<Integer> finalList = new LinkedList<Integer>();
+        list1.append(1);
+        list1.append(2);
+        list1.append(4);
+        list2.append(5);
+        list2.append(6);
+        finalList = app.zipLists(list1,list2);
+        String result = "{1}->{5}->{2}->{6}->{4}->null";
+        String resString = finalList.toStringZipp();
+        assertEquals(result, resString);
     }
 
 

@@ -4,50 +4,60 @@
 package class06;
 
 public class App {
+
     public String getGreeting() {
         return "Hello World!";
     }
 
+
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
-        LinkedList<Integer> age = new LinkedList<Integer>();
-        //// Integer value = 5;
-        age.insertValue(1);
-        age.insertValue(2);
-        age.insertValue(3);
-        /// {3}->{2}->{1}->X
-        age.append(5);
-        age.append(50);
-        age.append(66);
-        ///result :  {3}->{2}->{1}->{5}->{50}->{66}->X
+        LinkedList<Integer> list1 = new LinkedList<Integer>();
+        LinkedList<Integer> list2 = new LinkedList<Integer>();
+
+        list1.append(1);
+        list1.append(2);
+        list1.append(4);
+        list2.append(5);
+        list2.append(6);
+
+        //{1}->{5}->{2}->{6}->{4}->null
+        System.out.println(zipLists(list1,list2).toStringZipp());
 
 
-
-
-
-        age.insertAfter(5,100);
-        ///result :  {3}->{2}->{1}->{5}->{100}->{50}->{66}->X
-
-
-
-
-
-
-
-        age.insertBefore(100 , 99);
-        age.insertBefore(99, 999);
-        ///result :  {3}->{2}->{1}->{5}->{999}->{99}->{100}->{50}->{66}->X
-
-
-
-
-
-
-
-
-
-//
-        System.out.println(age.toString());
-//
     }
+
+
+
+
+    public static LinkedList<Integer> zipLists(LinkedList<Integer> list1, LinkedList<Integer> list2) {
+        LinkedList<Integer> result = new LinkedList<>();
+
+        Node<Integer> pointer1 = list1.headValue;
+        Node<Integer> pointer2 = list2.headValue;
+        Node<Integer> pointer3 = result.headValue;
+
+
+       while (pointer1 != null || pointer2 !=null)
+       {
+           if(pointer1 == null)
+           {
+               result.append(pointer2.value);
+               pointer2= pointer2.nextValue;
+           }
+           else if(pointer2 == null)
+           {
+               result.append(pointer1.value);
+               pointer1= pointer1.nextValue;
+           }
+           else {
+               result.append(pointer1.value);
+               result.append(pointer2.value);
+               pointer1 = pointer1.nextValue;
+               pointer2 = pointer2.nextValue;
+           }
+       }
+           return result;
+    }
+
 }

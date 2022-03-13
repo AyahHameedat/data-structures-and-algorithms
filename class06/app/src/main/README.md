@@ -1,11 +1,11 @@
-# Challenge Summary
+# Challenge Summary - Class08
 <!-- Description of the challenge -->
 ### Write a function called zip lists that have 2 parameters as linked lists make merging between 2 lists and return new linked list zipped.
 
 
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
-![](./assets/class08.png)
+![](../assets/class08.png)
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
@@ -46,9 +46,9 @@ public static LinkedList<Integer> zipLists(LinkedList<Integer> list1, LinkedList
 ```
 
 ## App.java Run(main):
-![](./assets/mainZippedList.png)
+![](../assets/mainZippedList.png)
 
 
 ## AppTest.java Run (test section):
 ### Test Passed
-![](./assets/AppTestZipLists.png)
+![](../assets/AppTestZipLists.png)
