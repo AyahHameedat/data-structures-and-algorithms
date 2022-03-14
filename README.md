@@ -11,5 +11,10 @@ Number | The Challenge | Challenge Link
 1 | Reverse an array | [Reverse an array](https://github.com/AyahHameedat/data-structures-and-algorithms/blob/main/java/Challenge1/README.md)
 2 | Insert and shift an array in middle at index | [Insert and shift an array in middle at index](https://github.com/AyahHameedat/data-structures-and-algorithms/tree/main/java-array-insert-shift)
 3 | Binary search in a sorted 1D array | [Binary search in a sorted 1D array](https://github.com/AyahHameedat/data-structures-and-algorithms/tree/main/java-array-binary-search)
+4 | Mock Interviews | [Mock Interviews](https://docs.google.com/spreadsheets/d/1sJKQxLgoQdPtCGX3xyZRLOSY-jTazIF26rxGwe5D2LI/edit#gid=0)
+5 | Implementation: Singly Linked Lists | [Singly Linked Lists](https://github.com/AyahHameedat/data-structures-and-algorithms/blob/main/linkedList/app/src/README.md)
+6 | linked-list-insertions | [linked-list-insertions](https://github.com/AyahHameedat/data-structures-and-algorithms/blob/main/class06/app/src/README.md)
+7 |  Class 07  | [link]()
+8 |  Class 08  | [Class 08](https://github.com/AyahHameedat/data-structures-and-algorithms/blob/main/class06/app/src/main/README.md)
 
 <br>
