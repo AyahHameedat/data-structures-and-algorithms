@@ -9,6 +9,7 @@ public class stack {
 
     private stackNode top;
 
+
     public stack() {
         top = null;
     }
@@ -52,7 +53,7 @@ public class stack {
             temp = top;
             top = temp.getNext();
             temp.setNext(null);
-            return top;
+            return temp;
         }
     }
 

@@ -5,6 +5,7 @@ package class10;
 
 import class10.dsa.App;
 import class10.dsa.queue.data.queueNode;
+import class10.dsa.queue.structure.pseudoQueue;
 import class10.dsa.queue.structure.queue;
 import class10.dsa.stack.data.stackNode;
 import class10.dsa.stack.structure.stack;
@@ -208,6 +209,57 @@ class AppTest {
         String expected ="The QUEUE is Empty";
         assertEquals(expected,result1);
     }
+
+
+
+//    pseudoQueue
+
+    @Test
+    @DisplayName("pseudoEnqueue")
+    void pseudoQueueEnqNull()
+    {
+        stack stack1 = new stack();
+        stack stack2 = new stack();
+
+        String[] keys = {"20","15","10"};
+        pseudoQueue pQueue = new pseudoQueue(stack1,stack2);
+
+        for (String key: keys) {
+            pQueue.enqueue(key);
+        }
+
+        pQueue.enqueue("5");
+
+        String result = pQueue.toString();
+        String expected = "{5}{10}{15}{20}";
+        assertEquals(expected, result);
+
+    }
+
+    @Test
+    @DisplayName("pseudoDequeue")
+    void pseudoQueueDequeue()
+    {
+        stack stack1 = new stack();
+        stack stack2 = new stack();
+
+        String[] keys = {"20","15","10"};
+        pseudoQueue pQueue = new pseudoQueue(stack1,stack2);
+
+        for (String key: keys) {
+            pQueue.enqueue(key);
+        }
+        pQueue.enqueue("5");
+
+        //Dequeue
+        pQueue.dequeue();
+        pQueue.dequeue();
+        String result = pQueue.toString();
+        String expected = "{10}{5}";
+        assertEquals(expected, result);
+
+    }
+
 
 }
 

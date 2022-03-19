@@ -10,6 +10,11 @@ public class stackNode {
         this.carName = carName;
     }
 
+    public stackNode() {
+
+        carName = null;
+    }
+
     public void setNext(stackNode next) {
         this.next = next;
     }
@@ -25,8 +30,7 @@ public class stackNode {
 
     @Override
     public String toString() {
-        return "stackNode{" +
-                "car='" + carName + '\''+
+        return "{"+ carName +
                 '}';
     }
 }
