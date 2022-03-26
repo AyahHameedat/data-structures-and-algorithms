@@ -20,7 +20,8 @@ public class stack {
         return top == null;
     }
 
-    public stackNode push(stackNode stackNode){
+    public stackNode push(String value){
+        stackNode stackNode = new stackNode(value);
         if(isEmpty())
         {
             top = stackNode;
@@ -37,10 +38,6 @@ public class stack {
 
     public stackNode peek()
     {
-        if (isEmpty())
-        {
-            throw new EmptyStackException();
-        }
         return top;
     }
 
@@ -62,7 +59,7 @@ public class stack {
         stackNode pointer = this.top;
         String result = "";
         while (pointer != null) {
-            result += "{" + pointer.getCar() + "}";
+            result += pointer.getCar() ;
             pointer = pointer.getNext();
         }
         return result;

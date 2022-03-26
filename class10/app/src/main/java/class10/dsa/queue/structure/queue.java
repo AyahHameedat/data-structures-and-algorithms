@@ -5,13 +5,12 @@ import class10.dsa.stack.data.stackNode;
 
 import java.util.NoSuchElementException;
 
-public class queue {
-
+public class queue<T> {
 //    private static final int QUEUE_SIZE = 5;
 //    private int size;
 
-    private queueNode rear;
-    private queueNode front;
+     queueNode rear;
+     queueNode front;
 
 
     public queue() {
