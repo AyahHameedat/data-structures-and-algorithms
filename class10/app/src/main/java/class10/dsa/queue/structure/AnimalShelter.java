@@ -6,16 +6,12 @@ import java.util.NoSuchElementException;
 
 public class AnimalShelter {
     private String animalName;
-    private queue queue;
-
     private queue<cat> queueCat;
     private queue<cat> queueDog;
 
-//    private queueNode front;
 
     public AnimalShelter(String animalName, queue queueCat, queue queueDog) {
-//        if(animalName == "cat" || animalName == "dog")
-//        {
+
             this.animalName = animalName;
             this.queueCat = queueCat;
             this.queueDog = queueDog;

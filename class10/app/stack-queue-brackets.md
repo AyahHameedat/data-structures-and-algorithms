@@ -16,3 +16,4 @@
 <!-- Show how to run your code, and examples of it in action -->
 ### 1) Way 1: you have to go to App.java(App.main) to check my code then run it to show the result.
 ### 2) Way 2: you have to go to AppTest.java and run the function called (validBrackets) then run it to show the result.
+
