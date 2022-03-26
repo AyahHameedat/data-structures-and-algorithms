@@ -17,9 +17,9 @@ Number | The Challenge | Challenge Link
 7 |  Class 07  | [link]()
 8 |  Class 08  | [Class 08](https://github.com/AyahHameedat/data-structures-and-algorithms/blob/main/class06/app/src/main/README.md)
 9 |  Class 09  | [class09](https://docs.google.com/spreadsheets/d/12OXI9ZCxSJYfhd1ReiWf_NCsVerZeknTYExHA4Y8HSY/edit#gid=0)
-10|  Class 10  | [class10](https://github.com/AyahHameedat/data-structures-and-algorithms/blob/main/class10/app/README.md)
-11|  Class 11  | [class11](https://github.com/AyahHameedat/data-structures-and-algorithms/blob/main/class10/app/pseudoQueue.md)
-12|  Class 12  | [class12](https://github.com/AyahHameedat/data-structures-and-algorithms/blob/main/class10/app/AnimalShelter.md)
-13|  Class 14  | [class14](https://github.com/AyahHameedat/data-structures-and-algorithms/blob/main/class10/app/stack-queue-brackets.md)
+10|  Class 10  | [stack-queue](https://github.com/AyahHameedat/data-structures-and-algorithms/blob/main/class10/app/README.md)
+11|  Class 11  | [stack-queue-pseudo](https://github.com/AyahHameedat/data-structures-and-algorithms/blob/main/class10/app/pseudoQueue.md)
+12|  Class 12  | [Animal-Shelter](https://github.com/AyahHameedat/data-structures-and-algorithms/blob/main/class10/app/AnimalShelter.md)
+13|  Class 13  | [stack-queue-brackets](https://github.com/AyahHameedat/data-structures-and-algorithms/blob/main/class10/app/stack-queue-brackets.md)
 
 <br>
