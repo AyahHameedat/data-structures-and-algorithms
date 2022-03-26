@@ -5,9 +5,9 @@ package class10;
 
 import class10.dsa.App;
 import class10.dsa.queue.data.queueNode;
-import class10.dsa.queue.structure.pseudoQueue;
-import class10.dsa.queue.structure.queue;
+import class10.dsa.queue.structure.*;
 import class10.dsa.stack.data.stackNode;
+import class10.dsa.stack.structure.MultiBracket;
 import class10.dsa.stack.structure.stack;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -24,47 +24,47 @@ class AppTest {
         void pushStack()
         {
             stack stackTest = new stack();
-            String result = String.valueOf(stackTest.push(new stackNode("Audi")));
+            String result = String.valueOf(stackTest.push("Audi"));
             stackNode reStack = new stackNode("Audi");
             String expected = String.valueOf(reStack);
             assertEquals(expected , result);
         }
 
-    @Test
-    @DisplayName("Test2")
-    void pushMulValStack()
-    {
-        stack stackTest = new stack();
-        stackTest.push(new stackNode("Audi"));
-        stackTest.push(new stackNode("Mercedes"));
-        stackTest.push(new stackNode("RangeRover"));
-        String result = String.valueOf(stackTest);
-        String expected = "{RangeRover}{Mercedes}{Audi}";
-        assertEquals(expected , result);
-    }
-
-    @Test
-    @DisplayName("Test3")
-    void popOneOfStack()
-    {
-        stack stackTest = new stack();
-        stackTest.push(new stackNode("Audi"));
-        stackTest.push(new stackNode("Mercedes"));
-        stackTest.push(new stackNode("RangeRover"));
-        stackTest.pop();
-        System.out.println(stackTest.peek());
-        String result = String.valueOf(stackTest);
-        String expected = "{Mercedes}{Audi}";
-        assertEquals(expected , result);
-    }
+//    @Test
+//    @DisplayName("Test2")
+//    void pushMulValStack()
+//    {
+//        stack stackTest = new stack();
+//        stackTest.push("Audi");
+//        stackTest.push("Mercedes");
+//        stackTest.push("RangeRover");
+//        String result = String.valueOf(stackTest);
+//        String expected = "{RangeRover}{Mercedes}{Audi}";
+//        assertEquals(expected , result);
+//    }
+//
+//    @Test
+//    @DisplayName("Test3")
+//    void popOneOfStack()
+//    {
+//        stack stackTest = new stack();
+//        stackTest.push("Audi");
+//        stackTest.push("Mercedes");
+//        stackTest.push("RangeRover");
+//        stackTest.pop();
+//        System.out.println(stackTest.peek());
+//        String result = String.valueOf(stackTest);
+//        String expected = "{Mercedes}{Audi}";
+//        assertEquals(expected , result);
+//    }
 
     @DisplayName("Test4")
     void popEmptyStack()
     {
         stack stackTest = new stack();
-        stackTest.push(new stackNode("Audi"));
-        stackTest.push(new stackNode("Mercedes"));
-        stackTest.push(new stackNode("RangeRover"));
+        stackTest.push("Audi");
+        stackTest.push("Mercedes");
+        stackTest.push("RangeRover");
 
         stackTest.pop();
         stackTest.pop();
@@ -82,9 +82,9 @@ class AppTest {
     void peekStack()
     {
         stack stackTest = new stack();
-        stackTest.push(new stackNode("Audi"));
-        stackTest.push(new stackNode("Mercedes"));
-        stackTest.push(new stackNode("RangeRover"));
+        stackTest.push("Audi");
+        stackTest.push("Mercedes");
+        stackTest.push("RangeRover");
         System.out.println(stackTest.peek());
         String result = String.valueOf(stackTest.peek().getCar());
         String expected = "RangeRover";
@@ -197,69 +197,121 @@ class AppTest {
         assertEquals(expected,result);
     }
 
-    @Test
-    @DisplayName("Test14")
-    void expPeekDeqQueue()
-    {
-        queue queueTest = new queue();
-        Exception expDeq = assertThrows(Exception.class, ()->{queueTest.dequeue();});
-//        Exception expPeek = assertThrows(Exception.class, ()->{queueTest.peek();});
-        String result1 = expDeq.getMessage();
-//        String result2 = expPeek.getMessage();
-        String expected ="The QUEUE is Empty";
-        assertEquals(expected,result1);
-    }
+//    @Test
+//    @DisplayName("Test14")
+//    void expPeekDeqQueue()
+//    {
+//        queue queueTest = new queue();
+//        Exception expDeq = assertThrows(Exception.class, ()->{queueTest.dequeue();});
+////        Exception expPeek = assertThrows(Exception.class, ()->{queueTest.peek();});
+//        String result1 = expDeq.getMessage();
+////        String result2 = expPeek.getMessage();
+//        String expected ="The QUEUE is Empty";
+//        assertEquals(expected,result1);
+//    }
 
 
 
 //    pseudoQueue
 
+//    @Test
+//    @DisplayName("pseudoEnqueue")
+//    void pseudoQueueEnqNull()
+//    {
+//        stack stack1 = new stack();
+//        stack stack2 = new stack();
+//
+//        String[] keys = {"20","15","10"};
+//        pseudoQueue pQueue = new pseudoQueue(stack1,stack2);
+//
+//        for (String key: keys) {
+//            pQueue.enqueue(key);
+//        }
+//
+//        pQueue.enqueue("5");
+//
+//        String result = pQueue.toString();
+//        String expected = "{5}{10}{15}{20}";
+//        assertEquals(expected, result);
+//
+//    }
+//
+//    @Test
+//    @DisplayName("pseudoDequeue")
+//    void pseudoQueueDequeue()
+//    {
+//        stack stack1 = new stack();
+//        stack stack2 = new stack();
+//
+//        String[] keys = {"20","15","10"};
+//        pseudoQueue pQueue = new pseudoQueue(stack1,stack2);
+//
+//        for (String key: keys) {
+//            pQueue.enqueue(key);
+//        }
+//        pQueue.enqueue("5");
+//
+//        //Dequeue
+//        pQueue.dequeue();
+//        pQueue.dequeue();
+//        String result = pQueue.toString();
+//        String expected = "{10}{5}";
+//        assertEquals(expected, result);
+//
+//    }
+
+
+
     @Test
-    @DisplayName("pseudoEnqueue")
-    void pseudoQueueEnqNull()
+    @DisplayName("Brackets")
+    void validBrackets()
     {
-        stack stack1 = new stack();
-        stack stack2 = new stack();
-
-        String[] keys = {"20","15","10"};
-        pseudoQueue pQueue = new pseudoQueue(stack1,stack2);
-
-        for (String key: keys) {
-            pQueue.enqueue(key);
-        }
-
-        pQueue.enqueue("5");
-
-        String result = pQueue.toString();
-        String expected = "{5}{10}{15}{20}";
+        stack stack = new stack();
+        String s = "{[()]}";
+        MultiBracket multiBracket = new MultiBracket(stack);
+        boolean result = true;
+        boolean expected = multiBracket.validateBrackets(s);
         assertEquals(expected, result);
+    }
 
+
+    @Test
+    @DisplayName("Animal Shelter Test1")
+    void animalShelterEnqueue(){
+        queue<cat> qCat = new queue();
+        queue<dog> qDog = new queue();
+        AnimalShelter qNew = new AnimalShelter("cat", qCat, qDog);
+        qNew.enqueue("cat");
+        qNew.enqueue("cat");
+        qNew.enqueue("dog");
+        qNew.enqueue("cat");
+        qNew.enqueue("dog");
+
+        String result ="AnimalShelter => {cat}{cat}{cat}{dog}{dog}";
+        String expected = qNew.toString();
+
+        assertEquals(expected, result);
+//        AnimalShelter => {cat}{cat}{dog}{dog}
     }
 
     @Test
-    @DisplayName("pseudoDequeue")
-    void pseudoQueueDequeue()
-    {
-        stack stack1 = new stack();
-        stack stack2 = new stack();
+    @DisplayName("Animal Shelter Test2")
+    void animalShelterDequeue(){
+        queue<cat> qCat = new queue();
+        queue<dog> qDog = new queue();
+        AnimalShelter qNew = new AnimalShelter("cat", qCat, qDog);
+        qNew.enqueue("cat");
+        qNew.enqueue("cat");
+        qNew.enqueue("dog");
+        qNew.enqueue("cat");
+        qNew.enqueue("dog");
 
-        String[] keys = {"20","15","10"};
-        pseudoQueue pQueue = new pseudoQueue(stack1,stack2);
+        qNew.dequeue("cat");
 
-        for (String key: keys) {
-            pQueue.enqueue(key);
-        }
-        pQueue.enqueue("5");
+        String result ="AnimalShelter => {cat}{cat}{dog}{dog}";
+        String expected = qNew.toString();
 
-        //Dequeue
-        pQueue.dequeue();
-        pQueue.dequeue();
-        String result = pQueue.toString();
-        String expected = "{10}{5}";
         assertEquals(expected, result);
-
     }
-
-
 }
 

@@ -13,7 +13,7 @@ public class pseudoQueue {
 
     public void enqueue(String value)
     {
-        stack1.push(new stackNode(value));
+        stack1.push(value);
     }
 
     public stackNode dequeue()
@@ -26,7 +26,7 @@ public class pseudoQueue {
         else if (stack2.isEmpty())
         {
             while (!stack1.isEmpty()) {
-                stack2.push(stack1.pop());
+                stack2.push(String.valueOf(stack1.pop()));
             }
         }
 

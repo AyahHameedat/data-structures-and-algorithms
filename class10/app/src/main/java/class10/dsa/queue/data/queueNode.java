@@ -23,9 +23,9 @@ public class queueNode {
 
     @Override
     public String toString() {
-        return "queueNode{" +
-                "carName='" + carName + '\'' +
-                '}';
+        String result = "";
+        result += carName;
+        return result;
     }
 }
 
