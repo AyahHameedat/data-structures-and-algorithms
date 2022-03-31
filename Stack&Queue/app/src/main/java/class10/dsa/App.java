@@ -106,10 +106,13 @@ public class App {
 
 
         BinaryTree<Integer> BinTree = new BinaryTree<>();
-        BinTree.setRoot(new BTNode("10"));
+        BinTree.setRoot(new BTNode(10));
 
-        BinTree.getRoot().setLeft(new BTNode("8"));
-        BinTree.getRoot().setRight(new BTNode("20"));
+        BinTree.getRoot().setLeft(new BTNode(8));
+        BinTree.getRoot().setRight(new BTNode(20));
+
+        BinTree.getRoot().getRight().setRight(new BTNode(35));
+        BinTree.getRoot().getRight().setLeft(new BTNode(22));
 
         System.out.println("Post-Order");
         BinTree.traverse(BinaryTree.TraversalOrder.POSTORDER);
@@ -118,6 +121,8 @@ public class App {
         System.out.println("Pre-Order");
         BinTree.traverse(BinaryTree.TraversalOrder.PREORDER);
 
+        System.out.println("++++++++++++++++MAX+++++++++++");
+        System.out.println(BinTree.maxTree(BinTree.getRoot()));
 
         System.out.println("-------------------BST-----------------------");
 

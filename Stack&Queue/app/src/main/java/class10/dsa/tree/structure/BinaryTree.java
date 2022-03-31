@@ -137,4 +137,23 @@ public class BinaryTree<T extends Comparable<T>> {
         private void levelOrderTraversalRecursive(queue<BTNode> queue) {
             // implemnt this
         }
+
+
+        public Integer maxTree(BTNode treeNode)
+        {
+            if (treeNode == null)
+                return Integer.MIN_VALUE;
+
+            int result = treeNode.getData();
+            int leftResult = maxTree(treeNode.getLeft());
+            int rightResult = maxTree(treeNode.getRight());
+
+            if(leftResult > result)
+                result = leftResult;
+            if(rightResult > result)
+                result = rightResult;
+
+            return result;
+
+        }
 }

@@ -2,12 +2,12 @@ package class10.dsa.tree.data;
 
 public class BTNode {
 
-    private String data;
+    private int data;
 
     private BTNode left;
     private BTNode right;
 
-    public BTNode(String data) {
+    public BTNode(int data) {
         this.data = data;
     }
 
@@ -15,11 +15,11 @@ public class BTNode {
 
     }
 
-    public String getData() {
+    public int getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(int data) {
         this.data = data;
     }
 
