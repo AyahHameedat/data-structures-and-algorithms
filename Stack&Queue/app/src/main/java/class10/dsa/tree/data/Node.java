@@ -28,4 +28,14 @@ public abstract class Node<Integer extends Comparable<Integer>> implements Compa
         public void setRightNode(Node<Integer> rightNode) {
             this.rightNode = rightNode;
         }
+
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "data=" + data +
+                ", leftNode=" + leftNode +
+                ", rightNode=" + rightNode +
+                '}';
     }
+}

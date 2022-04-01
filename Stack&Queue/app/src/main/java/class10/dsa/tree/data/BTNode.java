@@ -39,4 +39,13 @@ public class BTNode {
         this.right = right;
     }
 
+
+    @Override
+    public String toString() {
+        return "BTNode{" +
+                "data=" + data +
+                ", left=" + left +
+                ", right=" + right +
+                '}';
+    }
 }

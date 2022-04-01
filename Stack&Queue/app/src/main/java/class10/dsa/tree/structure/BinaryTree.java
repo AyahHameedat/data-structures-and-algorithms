@@ -28,7 +28,7 @@ public class BinaryTree<T extends Comparable<T>> {
             this.root = root;
         }
 
-    public void traverse(BinaryTree.TraversalOrder order) {
+    public List traverse(BinaryTree.TraversalOrder order) {
         switch (order) {
             case INORDER:
                 inOrder(root);
@@ -42,6 +42,7 @@ public class BinaryTree<T extends Comparable<T>> {
             default:
                 System.out.println("Hello");
         }
+        return BTList;
     }
 
 
@@ -50,13 +51,16 @@ public class BinaryTree<T extends Comparable<T>> {
             return BTList;
         }
 
+
         inOrder(treeNode.getLeft()); // left
+
+        BTList.add(treeNode.getData());
 
         printNode(treeNode); // root
 
         inOrder(treeNode.getRight()); // right
 
-        BTList.add(treeNode.getData());
+
 
         return BTList;
     }
@@ -68,11 +72,11 @@ public class BinaryTree<T extends Comparable<T>> {
 
         printNode(treeNode);
 
+        BTList.add(treeNode.getData());
+
         preOrder(treeNode.getLeft());
 
         preOrder(treeNode.getRight());
-
-        BTList.add(treeNode.getData());
 
 
         return BTList;
@@ -87,9 +91,9 @@ public class BinaryTree<T extends Comparable<T>> {
 
         postOrder(treeNode.getRight());
 
-        printNode(treeNode);
         BTList.add(treeNode.getData());
 
+        printNode(treeNode);
 
         return BTList;
 
@@ -156,4 +160,5 @@ public class BinaryTree<T extends Comparable<T>> {
             return result;
 
         }
+
 }
