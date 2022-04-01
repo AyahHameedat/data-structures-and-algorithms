@@ -9,8 +9,15 @@ import class10.dsa.queue.structure.*;
 import class10.dsa.stack.data.stackNode;
 import class10.dsa.stack.structure.MultiBracket;
 import class10.dsa.stack.structure.stack;
+import class10.dsa.tree.data.BTNode;
+import class10.dsa.tree.structure.BinarySearchTree;
+import class10.dsa.tree.structure.BinaryTree;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
@@ -296,7 +303,7 @@ class AppTest {
 
     @Test
     @DisplayName("Animal Shelter Test2")
-    void animalShelterDequeue(){
+    void animalShelterDequeue() {
         queue<cat> qCat = new queue();
         queue<dog> qDog = new queue();
         AnimalShelter qNew = new AnimalShelter("cat", qCat, qDog);
@@ -308,10 +315,156 @@ class AppTest {
 
         qNew.dequeue("cat");
 
-        String result ="AnimalShelter => {cat}{cat}{dog}{dog}";
+        String result = "AnimalShelter => {cat}{cat}{dog}{dog}";
         String expected = qNew.toString();
 
         assertEquals(expected, result);
+    }
+
+
+
+
+
+
+    /*                              Tree Tests                                            */
+
+
+    @Test
+    @DisplayName("Empty Tree Test1")
+    void emptyTree() {
+
+        BinaryTree<Integer> BinTree = new BinaryTree<>();
+        assertNotNull(BinTree);
+    }
+
+
+    @Test
+    @DisplayName("Single Root Node Test2")
+    void singleRootNodeTree() {
+
+        BinaryTree<Integer> BinTree = new BinaryTree<>();
+        BinTree.setRoot(new BTNode(10));
+
+        String result = "BTNode{data=10, left=null, right=null}";
+        String expected = BinTree.getRoot().toString();
+        assertEquals(expected, result);
+
+    }
+
+    @Test
+    @DisplayName(" Root Left Right Node Test3")
+    void rootLeftRightNodeTree() {
+        BinaryTree<Integer> BinTree = new BinaryTree<>();
+        BinTree.setRoot(new BTNode(10));
+
+        BinTree.getRoot().setLeft(new BTNode(8));
+        BinTree.getRoot().setRight(new BTNode(20));
+
+        String result = "BTNode{data=10, left=BTNode{data=8, left=null, right=null}, right=BTNode{data=20, left=null, right=null}}";
+        String expected = BinTree.getRoot().toString();
+
+        assertEquals(expected, result);
+
+    }
+
+    @Test
+    @DisplayName(" preorder traversal Test4")
+    void preorderTraversalTree() {
+        BinaryTree<Integer> BinTree = new BinaryTree<>();
+        BinTree.setRoot(new BTNode(10));
+
+        BinTree.getRoot().setLeft(new BTNode(8));
+        BinTree.getRoot().setRight(new BTNode(20));
+
+
+        String expected = String.valueOf(BinTree.traverse(BinaryTree.TraversalOrder.PREORDER));
+        System.out.println("AYA");
+        String result = "[10, 8, 20]";
+
+
+
+        System.out.println("********************0" + expected.toString());
+        //        String expected = BinTree.getRoot().toString();
+
+        assertEquals(expected, result);
+
+    }
+
+
+    @Test
+    @DisplayName(" inOrder traversal Test5")
+    void inOrderTraversalTree() {
+        BinaryTree<Integer> BinTree = new BinaryTree<>();
+        BinTree.setRoot(new BTNode(10));
+
+        BinTree.getRoot().setLeft(new BTNode(8));
+        BinTree.getRoot().setRight(new BTNode(20));
+
+        String expected = String.valueOf(BinTree.traverse(BinaryTree.TraversalOrder.INORDER));
+        String result = "[8, 10, 20]";
+
+
+        assertEquals(expected,result);
+
+    }
+
+
+    @Test
+    @DisplayName(" postOrder traversal Test6")
+    void postOrderTraversalTree() {
+        BinaryTree<Integer> BinTree = new BinaryTree<>();
+        BinTree.setRoot(new BTNode(10));
+
+        BinTree.getRoot().setLeft(new BTNode(8));
+        BinTree.getRoot().setRight(new BTNode(20));
+
+
+        String expected = String.valueOf(BinTree.traverse(BinaryTree.TraversalOrder.POSTORDER));
+        String result = "[8, 20, 10]";
+
+
+
+        System.out.println("********************0" + expected.toString());
+        //        String expected = BinTree.getRoot().toString();
+
+        assertEquals(expected, result);
+
+    }
+
+
+    @Test
+    @DisplayName(" Contains Node Test7")
+    void containsNodeTree() {
+        BinarySearchTree<Integer> BST = new BinarySearchTree<>();
+        BST.add(200);
+        BST.add(250);
+        BST.add(50);
+        BST.add(20);
+        BST.add(10);
+        BST.add(80);
+
+        boolean result = BST.contains(10);
+//        BST.contains(100);
+
+        assertEquals(true, result);
+    }
+
+
+    @Test
+    @DisplayName(" Contains Node Test8")
+    void notContainsNodeTree() {
+        BinarySearchTree<Integer> BST = new BinarySearchTree<>();
+        BST.add(200);
+        BST.add(250);
+        BST.add(50);
+        BST.add(20);
+        BST.add(10);
+        BST.add(80);
+
+        boolean result = BST.contains(100);
+//        BST.contains(100);
+
+        assertEquals(false, result);
     }
 }
 

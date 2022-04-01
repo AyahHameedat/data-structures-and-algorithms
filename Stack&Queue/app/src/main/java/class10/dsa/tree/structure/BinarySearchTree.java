@@ -124,13 +124,13 @@ public class BinarySearchTree<T extends Comparable<Integer>> {
             }
         }
 
-        private boolean containsHelper(Integer searchTerm, Node<Integer> root) {
+        private boolean containsHelper(Integer searchTerm, Node<Integer> root) throws NullPointerException  {
             // implement this
             if (root == null)
             {
                 return false;
             }
-            else if(searchTerm == root.getData())
+            if(searchTerm == root.getData())
             {
                 return true;
             }
@@ -144,4 +144,13 @@ public class BinarySearchTree<T extends Comparable<Integer>> {
             }
             else return false;
         }
+
+
+    @Override
+    public String toString() {
+        return "BinarySearchTree{" +
+                "root=" + root +
+                ", size=" + size +
+                '}';
+    }
 }
