@@ -466,5 +466,35 @@ class AppTest {
 
         assertEquals(false, result);
     }
+
+
+
+
+
+    /*                              Tree-Max Tests                                            */
+
+
+    @Test
+    @DisplayName("Tree Max Test1")
+    void maxTree() {
+
+        BinaryTree<Integer> BinTree = new BinaryTree<>();
+        BinTree.setRoot(new BTNode(10));
+
+        BinTree.getRoot().setLeft(new BTNode(8));
+        BinTree.getRoot().setRight(new BTNode(20));
+
+        BinTree.getRoot().getRight().setRight(new BTNode(35));
+        BinTree.getRoot().getRight().setLeft(new BTNode(22));
+
+        String expected = String.valueOf(BinTree.maxTree(BinTree.getRoot()));
+
+        String result = "35";
+        assertNotNull(expected, result);
+
+    }
+
+
+
 }
 
