@@ -494,6 +494,25 @@ class AppTest {
 
     }
 
+    @Test
+    @DisplayName("Tree levelOrderTraversalLoop Test1")
+    void levelOrderTraversalLoop() {
+
+        BinaryTree<Integer> BinTree = new BinaryTree<>();
+        BinTree.setRoot(new BTNode(10));
+
+        BinTree.getRoot().setLeft(new BTNode(8));
+        BinTree.getRoot().setRight(new BTNode(20));
+
+        BinTree.getRoot().getRight().setRight(new BTNode(35));
+        BinTree.getRoot().getRight().setLeft(new BTNode(22));
+
+        String result = String.valueOf(BinTree.levelOrderTraversalLoop());
+
+        String expected = "[10, 8, 20, 22, 35]";
+        assertEquals(expected, result);
+
+    }
 
 
 }

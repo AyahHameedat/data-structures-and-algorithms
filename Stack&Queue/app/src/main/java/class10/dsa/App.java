@@ -124,6 +124,10 @@ public class App {
         System.out.println("++++++++++++++++MAX+++++++++++");
         System.out.println(BinTree.maxTree(BinTree.getRoot()));
 
+
+        System.out.println("*********************TRAVERSAL************************");
+        System.out.println(BinTree.levelOrderTraversalLoop());
+        System.out.println(" ");
         System.out.println("-------------------BST-----------------------");
 
         BinarySearchTree<Integer> BST = new BinarySearchTree<>();
