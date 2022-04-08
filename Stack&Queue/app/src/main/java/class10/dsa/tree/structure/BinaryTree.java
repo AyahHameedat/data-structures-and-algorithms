@@ -3,10 +3,11 @@ package class10.dsa.tree.structure;
 
 import class10.dsa.queue.structure.queue;
 import class10.dsa.tree.data.BTNode;
-import class10.dsa.tree.data.Node;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 
 public class BinaryTree<T extends Comparable<T>> {
@@ -105,28 +106,28 @@ public class BinaryTree<T extends Comparable<T>> {
     }
 
 
+    public List levelOrderTraversalLoop()
+    {
+        Queue<BTNode> queue = new LinkedList<BTNode>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
 
-    public void levelOrderTraversalLoop() {
-            if (root != null) {
-                queue<BTNode> queue = new queue<>();
-                queue.enqueue(String.valueOf(root));
+            BTNode tempNode = queue.poll();
+            System.out.print(tempNode.getData() + " ");
+            BTList.add(tempNode.getData());
 
-                BTNode node;
-                while (!queue.isEmpty()) {
-                    node = queue.dequeue();
-                    System.out.print(node.getData() + " => ");
-                    if (node.getLeft() != null) {
-                        queue.enqueue(String.valueOf(node.getLeft()));
-                    }
+            /* Enqueue left child */
+            if (tempNode.getLeft() != null) {
+                queue.add(tempNode.getLeft());
+            }
 
-                    if (node.getRight() != null) {
-                        queue.enqueue(String.valueOf(node.getRight()));
-                    }
-                }
-            } else {
-                System.out.println("Tree empty");
+            /* Enqueue right child */
+            if (tempNode.getRight() != null) {
+                queue.add(tempNode.getRight());
             }
         }
+        return BTList;
+    }
 
         public void levelOrderTraversalRecursive() {
             if (root != null) {
