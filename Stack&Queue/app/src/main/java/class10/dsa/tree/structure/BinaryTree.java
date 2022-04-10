@@ -162,4 +162,44 @@ public class BinaryTree<T extends Comparable<T>> {
 
         }
 
+
+    public List fizzBuzzTree()
+    {
+        Queue<BTNode> queue = new LinkedList<BTNode>();
+
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            BTNode tempNode = queue.poll();
+
+             if (tempNode.getLeft() != null || tempNode.getRight() != null) {
+                queue.add(tempNode.getLeft());
+                queue.add(tempNode.getRight());
+
+                if ((tempNode.getData() % 3 == 0) && (tempNode.getData() % 5 == 0)) {
+                    queue.add(tempNode.getLeft());
+                    queue.add(tempNode.getRight());
+                    BTList.add("FizzBuzz");
+                }
+
+               else if (tempNode.getData() % 3 == 0) {
+                    queue.add(tempNode.getLeft());
+                    queue.add(tempNode.getRight());
+                    BTList.add("Fizz");
+                }
+                else if (tempNode.getData() % 5 == 0) {
+                    queue.add(tempNode.getLeft());
+                    queue.add(tempNode.getRight());
+                    BTList.add("Buzz");
+                }
+
+            }
+
+            else if ((tempNode.getData() % 5 != 0 )|| (tempNode.getData() % 5 != 0))
+            {
+                BTList.add(String.valueOf(tempNode.getData()));
+            }
+        }
+        return BTList;
+    }
 }
