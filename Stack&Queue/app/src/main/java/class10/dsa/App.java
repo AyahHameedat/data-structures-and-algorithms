@@ -99,14 +99,14 @@ public class App {
 //        MultiBracket multiBracket = new MultiBracket(stack);
 //        System.out.println("Result : " + multiBracket.validateBrackets(s));
 
-
+//
         System.out.println("AYA HAMEEDAT ^_^");
-
-        System.out.println("-------------------BT------------------------");
-
-
+//
+//        System.out.println("-------------------BT------------------------");
+//
+//
         BinaryTree<Integer> BinTree = new BinaryTree<>();
-        BinTree.setRoot(new BTNode(10));
+        BinTree.setRoot(new BTNode(15));
 
         BinTree.getRoot().setLeft(new BTNode(8));
         BinTree.getRoot().setRight(new BTNode(20));
@@ -114,41 +114,45 @@ public class App {
         BinTree.getRoot().getRight().setRight(new BTNode(35));
         BinTree.getRoot().getRight().setLeft(new BTNode(22));
 
-        System.out.println("Post-Order");
-        BinTree.traverse(BinaryTree.TraversalOrder.POSTORDER);
-        System.out.println("In-Order");
-        BinTree.traverse(BinaryTree.TraversalOrder.INORDER);
-        System.out.println("Pre-Order");
-        BinTree.traverse(BinaryTree.TraversalOrder.PREORDER);
 
-        System.out.println("++++++++++++++++MAX+++++++++++");
-        System.out.println(BinTree.maxTree(BinTree.getRoot()));
+        System.out.println(BinTree.fizzBuzzTree());
 
-
-        System.out.println("*********************TRAVERSAL************************");
-        System.out.println(BinTree.levelOrderTraversalLoop());
-        System.out.println(" ");
-        System.out.println("-------------------BST-----------------------");
-
-        BinarySearchTree<Integer> BST = new BinarySearchTree<>();
-        BST.add(200);
-        BST.add(250);
-        BST.add(50);
-        BST.add(20);
-        BST.add(10);
-        BST.add(80);
-
-        BST.contains(10);
-        BST.contains(100);
-
-        System.out.println("-------Post-Order------");
-        BST.traverse(BinarySearchTree.TraversalOrder.POSTORDER);
-
-        System.out.println("------In-Order------");
-        BST.traverse(BinarySearchTree.TraversalOrder.INORDER);
-
-        System.out.println("------Pre-Order------");
-        BST.traverse(BinarySearchTree.TraversalOrder.PREORDER);
+//
+//        System.out.println("Post-Order");
+//        BinTree.traverse(BinaryTree.TraversalOrder.POSTORDER);
+//        System.out.println("In-Order");
+//        BinTree.traverse(BinaryTree.TraversalOrder.INORDER);
+//        System.out.println("Pre-Order");
+//        BinTree.traverse(BinaryTree.TraversalOrder.PREORDER);
+//
+//        System.out.println("++++++++++++++++MAX+++++++++++");
+//        System.out.println(BinTree.maxTree(BinTree.getRoot()));
+//
+//
+//        System.out.println("*********************TRAVERSAL************************");
+//        System.out.println(BinTree.levelOrderTraversalLoop());
+//        System.out.println(" ");
+//        System.out.println("-------------------BST-----------------------");
+//
+//        BinarySearchTree<Integer> BST = new BinarySearchTree<>();
+//        BST.add(200);
+//        BST.add(250);
+//        BST.add(50);
+//        BST.add(20);
+//        BST.add(10);
+//        BST.add(80);
+//
+//        BST.contains(10);
+//        BST.contains(100);
+//
+//        System.out.println("-------Post-Order------");
+//        BST.traverse(BinarySearchTree.TraversalOrder.POSTORDER);
+//
+//        System.out.println("------In-Order------");
+//        BST.traverse(BinarySearchTree.TraversalOrder.INORDER);
+//
+//        System.out.println("------Pre-Order------");
+//        BST.traverse(BinarySearchTree.TraversalOrder.PREORDER);
 
     }
 }
