@@ -1,15 +1,21 @@
-# Pass 1:
+# **Merge Sort**
+### **Step1:**
+![](./Images/Step1.png)
 
-![](./Images/step1.png)
+### **Step2:**
+![](./Images/Step2.png)
 
-# Pass 2:
-![](Images/step2.png)
+### **Step3:**
+![](./Images/Step3.png)
 
-# Pass 3:
-![](Images/step3.png)
+### **Step4:**
+![](./Images/Step4.png)
 
-# Pass 4:
-![](Images/step4.png)
+### **Step5:**
+![](./Images/Step5.png)
 
-# Pass 5:
-![](Images/step5.png)
+
+<br>
+<br>
+
+![](./Images/Blog_MergeSort.png)
