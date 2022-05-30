@@ -11,47 +11,47 @@ public class App {
         System.out.println(new App().getGreeting());
 
 
+        Graph graph = new Graph();
+//        Pandora, Arendelle, Metroville, Monstroplolis, Narnia, Naboo
+
+        graph.addVertex("Pandora");
+        graph.addVertex("Arendelle");
+        graph.addVertex("Metroville");
+        graph.addVertex("Monstroplolis");
+        graph.addVertex("Narnia");
+        graph.addVertex("Naboo");
 
 
-
-                Graph graph = new Graph();
-
-                graph.addVertex("A");
-                graph.addVertex("B");
-                graph.addVertex("C");
-
-                System.out.println("------------------------------------------------------------------------");
-                System.out.println(graph.printGraph());
+        System.out.println("------------------------------------------------------------------------");
+        System.out.println(graph.printGraph());
 
 
+        graph.addEdges("Pandora", "Arendelle", 1);
+        graph.addEdges("Arendelle", "Metroville", 2);
+        graph.addEdges("Arendelle", "Monstroplolis", 3);
+        graph.addEdges("Metroville", "Narnia", 3);
+        graph.addEdges("Metroville", "Naboo", 3);
+        graph.addEdges("Monstroplolis", "Naboo", 3);
+
+        System.out.println("------------------------------------------------------------------------");
+        System.out.println(graph.printGraph());
 
 
-                graph.addEdges("A","B",1);
-                graph.addEdges("B","C",2);
-                graph.addEdges("A","C",3);
-
-                System.out.println("------------------------------------------------------------------------");
-                System.out.println(graph.printGraph());
+        System.out.println("----------------------------------------------------------------------");
+        System.out.println(graph.getVertices());
 
 
+        System.out.println("-----------------------------------------------------------------------");
+        System.out.println(graph.getNeighbors());
 
 
+        System.out.println("-----------------------------------------------------------------------");
+        System.out.println(graph.getSize());
 
 
-                System.out.println("----------------------------------------------------------------------");
-                System.out.println(graph.getVertices());
-
-
-
-                System.out.println("-----------------------------------------------------------------------");
-                System.out.println(graph.getNeighbors());
-
-
-
-                System.out.println("-----------------------------------------------------------------------");
-                System.out.println(graph.getSize());
+        System.out.println("---------- Code Challenge 36 -------------");
+        System.out.println(graph.bfs("Pandora"));
 
 
     }
-        }
-
+}
