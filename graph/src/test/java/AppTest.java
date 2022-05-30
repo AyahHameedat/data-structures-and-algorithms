@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.Assert.*;
 
@@ -113,4 +114,38 @@ public class AppTest {
         int res = graph.getSize();
         assertEquals(exp, String.valueOf(res));
     }
+
+
+
+    @Test
+    public void BFSTest()
+    {
+        Graph graph = new Graph();
+
+        graph.addVertex("Pandora");
+        graph.addVertex("Arendelle");
+        graph.addVertex("Metroville");
+        graph.addVertex("Monstroplolis");
+        graph.addVertex("Narnia");
+        graph.addVertex("Naboo");
+
+
+
+        graph.addEdges("Pandora","Arendelle",1);
+        graph.addEdges("Arendelle","Metroville",2);
+        graph.addEdges("Arendelle","Monstroplolis",3);
+        graph.addEdges("Metroville","Narnia",3);
+        graph.addEdges("Metroville","Naboo",3);
+        graph.addEdges("Monstroplolis","Naboo",3);
+
+
+        String expected = "[Pandora, Arendelle, Metroville, Monstroplolis, Narnia, Naboo]";
+        Set result = graph.bfs("Pandora");
+        assertEquals(expected, result.toString());
+    }
+
+
+
+
+
 }

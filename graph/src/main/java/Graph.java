@@ -57,7 +57,35 @@ public class Graph {
         }
 
 
-        public String printGraph() {
+        public List<Vertex> getAdjVertices(String data){
+            return adjVertices.get(new Vertex(data));
+        }
+
+            // breadth first
+
+        public Set<String> bfs(String root){
+            Set<String> visited = new LinkedHashSet<>();
+            Queue<String> queue = new LinkedList<>();
+            queue.add(root);
+            visited.add(root);
+            while (!queue.isEmpty()){
+                String vertex = queue.poll();
+                for(Vertex v : getAdjVertices(vertex)){
+                    if(!visited.contains((v.data)))
+                    {
+                        queue.add(v.data);
+                        visited.add(v.data);
+
+                    }
+                }
+            }
+            return visited;
+        }
+
+
+
+
+    public String printGraph() {
             StringBuilder strBuilder = new StringBuilder();
             for (Vertex vertex : adjVertices.keySet()) {
                 strBuilder.append(vertex);
@@ -66,6 +94,9 @@ public class Graph {
 
             return strBuilder.toString();
         }
+
+
+
 }
 
 
