@@ -41,8 +41,6 @@ public class HashMap <K, V> {
         arrayIndex = arrayIndex < 0 ? arrayIndex * -1 : arrayIndex;
 
 
-        System.out.println("The index of => " + key + " is => " + arrayIndex);
-
         return arrayIndex;
     }
 
@@ -70,6 +68,20 @@ public class HashMap <K, V> {
         HashNode<K, V> head = bucketArray.get(index);
 
         HashNode<K, V> newNode = new HashNode<>(key, value, hashcode);
+
+        while (head != null) {
+            if (head.getKey().equals(key)) {
+                head.setValue(value);
+                return;
+            }
+            head = head.getNext();
+        }
+        size++;
+
+        head = bucketArray.get(index);
+        newNode.setNext(head);
+        bucketArray.set(index, newNode);
+
 
 
         if (head == null) {
@@ -111,9 +123,32 @@ public class HashMap <K, V> {
 
     public V get(K key) {
         int index = hash(key);
-        int hashcode = hashCode(key);
 
         HashNode<K, V> head = bucketArray.get(index);
+
+        while (head != null) {
+            if (head.getKey().equals(key))
+                return head.getValue();
+            head = head.getNext();
+        }
+
+        return null;
+    }
+
+
+    public List<K> getKeys() {
+        List temp = new ArrayList<>();
+
+        for (int index = 0; index < bucketArray.size(); index++) {
+            HashNode<K, V> head = bucketArray.get(index);
+
+            while (head != null) {
+                temp.add(head.getKey());
+                head = head.getNext();
+            }
+        }
+        return temp;
+    }
 
 
         if (head != null) {
