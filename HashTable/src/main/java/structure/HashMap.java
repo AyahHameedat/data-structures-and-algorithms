@@ -40,9 +40,6 @@ public class HashMap <K, V> {
 
         arrayIndex = arrayIndex < 0 ? arrayIndex * -1 : arrayIndex;
 
-
-//        System.out.println("The index of => " + key + " is => " + arrayIndex);
-
         return arrayIndex;
     }
 
@@ -86,25 +83,30 @@ public class HashMap <K, V> {
 
 
 
-//        if (head == null) {
-//            bucketArray.set(index, newNode);
-//            size++;
-//        } else { // TODO: 5/11/22 We need to check for duplicate keys
-//            // this is logic from class mate
-//            while (this.contain(key)) {
-//                while (head != null) {
-//                    if (head.getKey().equals(key) && head.getHashCode() == hashCode(key)) {
-//                        return;
-//                    }
-//                    head = head.getNext();
-//                }
-//                newNode.setNext(head.getNext());
-//                head.setNext(newNode);
-//                size++;
-//            }
-//        }
-        // If load factor goes beyond threshold, then
-        // double hash table size
+        if (head == null) {
+            bucketArray.set(index, newNode);
+            size++;
+        } else { // TODO: 5/11/22 We need to check for duplicate keys
+            // this is logic from class mate
+            while (this.contain(key)) {
+                while (head != null) {
+                    if (head.getKey().equals(key) && head.getHashCode() == hashCode(key)) {
+                        return;
+                    }
+                    head = head.getNext();
+                }
+                newNode.setNext(head.getNext());
+                head.setNext(newNode);
+                size++;
+            }
+            head = head.getNext();
+        }
+        size++;
+
+        head = bucketArray.get(index);
+        newNode.setNext(head);
+        bucketArray.set(index, newNode);
+
 
         if ((1.0 * size) / buckets >= 0.7) {
             ArrayList<HashNode<K, V>> temp = bucketArray;
@@ -130,6 +132,36 @@ public class HashMap <K, V> {
 
         while (head != null) {
             if (head.getKey().equals(key))
+                return head.getValue();
+            head = head.getNext();
+        }
+
+        return null;
+    }
+
+
+    public List<K> getKeys() {
+        List temp = new ArrayList<>();
+
+        for (int index = 0; index < bucketArray.size(); index++) {
+            HashNode<K, V> head = bucketArray.get(index);
+
+            while (head != null) {
+                temp.add(head.getKey());
+                head = head.getNext();
+            }
+        }
+        return temp;
+    }
+
+
+        if (head != null) {
+            if (head.getKey().equals(key) && head.getHashCode() == hashCode(key)) {
+                return head.getValue();
+            }
+        } else { // TODO: 5/11/22 We need to check for duplicate keys
+            // this is logic from class mate
+            while (head.getNext() == null) {
                 return head.getValue();
             head = head.getNext();
         }

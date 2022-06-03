@@ -3,7 +3,7 @@ package data;
 public class HashNode <K, V> {
 
     private final K key;
-    private  V value;
+    private V value;
     private final Integer hashCode;
     private HashNode<K, V> next;
 
@@ -27,6 +27,11 @@ public class HashNode <K, V> {
 
     public void setNext(HashNode<K, V> next) {
         this.next = next;
+    }
+
+
+    public void setValue(V value) {
+        this.value = value;
     }
 
     public Integer getHashCode() {
