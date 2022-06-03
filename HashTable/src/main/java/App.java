@@ -12,7 +12,6 @@ public class App {
         System.out.println(new App().getGreeting());
 
 
-
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.set("JAVA", "JAVA");
         hashMap.set("Amman", "Amman");
@@ -21,10 +20,15 @@ public class App {
         hashMap.set("Bob", "Bob");
         hashMap.set("Carl", "Carl");
 
-        System.out.println("*******************************");
-        hashMap.contain("J");
-        hashMap.contain("Aya");
-    }
+        System.out.println(hashMap.hashCode());
 
+        System.out.println("*******************************");
+        System.out.println(hashMap.contain("J"));
+        System.out.println(hashMap.contain("Aya"));
+
+        System.out.println("============");
+        System.out.println(hashMap.getKeys());
+        System.out.println(hashMap.get("Carl"));
+    }
 
 }
