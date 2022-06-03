@@ -2,10 +2,9 @@ package structure;
 
 import data.HashNode;
 
-import java.util.ArrayList;
-import java.util.Objects;
+import java.util.*;
 
-public class HashMap <K, V>{
+public class HashMap <K, V> {
 
     private ArrayList<HashNode<K, V>> bucketArray;
     private int buckets;
@@ -26,12 +25,11 @@ public class HashMap <K, V>{
         return size;
     }
 
-    public boolean isEmpty()
-    {
+    public boolean isEmpty() {
         return size == 0;
     }
 
-    private int hashCode(K key){
+    private int hashCode(K key) {
         return Objects.hashCode(key);
     }
 
@@ -41,11 +39,23 @@ public class HashMap <K, V>{
         int arrayIndex = hashCode % buckets;
 
         arrayIndex = arrayIndex < 0 ? arrayIndex * -1 : arrayIndex;
-        
 
-        System.out.println("The index of => " + key + " is => " + arrayIndex);
 
         return arrayIndex;
+    }
+
+    public boolean contain(K key) {
+        int index = hash(key);
+
+        HashNode<K, V> head = bucketArray.get(index);
+
+        while (head != null) {
+            if (head.getKey().equals(key) && head.getHashCode() == hashCode(key)) {
+                return true;
+            }
+            head = head.getNext();
+        }
+        return false;
     }
 
 
@@ -58,29 +68,25 @@ public class HashMap <K, V>{
 
         HashNode<K, V> newNode = new HashNode<>(key, value, hashcode);
 
-
-        if (head == null) {
-            bucketArray.set(index, newNode);
-            size++;
-        } else { // TODO: 5/11/22 We need to check for duplicate keys
-            // this is logic from class mate
-//            while(newNode.contains(key) > 1 ){
-//            while (head != null) {
-//                if (head.getKey().equals(key) && head.getHashCode() == hashCode(key)) {
-////                    return head.getValue();
-//                }
-//                head = head.getNext();
-//            }
-            newNode.setNext(head.getNext());
-            head.setNext(newNode);
-            size++;
+        while (head != null) {
+            if (head.getKey().equals(key)) {
+                head.setValue(value);
+                return;
             }
+            head = head.getNext();
+        }
+        size++;
+
+        head = bucketArray.get(index);
+        newNode.setNext(head);
+        bucketArray.set(index, newNode);
+
 
         // If load factor goes beyond threshold, then
         // double hash table size
 
         if ((1.0 * size) / buckets >= 0.7) {
-            ArrayList<HashNode<K, V> > temp = bucketArray;
+            ArrayList<HashNode<K, V>> temp = bucketArray;
             bucketArray = new ArrayList<>();
             buckets = 2 * buckets;
             size = 0;
@@ -96,22 +102,33 @@ public class HashMap <K, V>{
         }
     }
 
-
-
-    public boolean contain(K key) {
+    public V get(K key) {
         int index = hash(key);
-        int hashcode = hashCode(key);
 
         HashNode<K, V> head = bucketArray.get(index);
 
         while (head != null) {
-            if (head.getKey().equals(key) && head.getHashCode() == hashCode(key)) {
-                return true;
-            }
+            if (head.getKey().equals(key))
+                return head.getValue();
             head = head.getNext();
         }
-        return false;
+
+        return null;
     }
 
+
+    public List<K> getKeys() {
+        List temp = new ArrayList<>();
+
+        for (int index = 0; index < bucketArray.size(); index++) {
+            HashNode<K, V> head = bucketArray.get(index);
+
+            while (head != null) {
+                temp.add(head.getKey());
+                head = head.getNext();
+            }
+        }
+        return temp;
+    }
 
 }
