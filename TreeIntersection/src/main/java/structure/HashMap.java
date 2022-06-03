@@ -240,25 +240,25 @@ public class HashMap <K, V> {
 //
 
 
-//
-//
-//    public <V> ArrayList<V> treeIntersection(BinaryTree<V> tree1, BinaryTree<V> tree2) {
-//        ArrayList<V> response = new ArrayList<>();
-//        if (tree1.root==null || tree2.root==null) {
-//            return null;
-//        } else {
-//            List<V> inTree1 = tree1.preOrder(tree1.root);
-//            System.out.println(inTree1);
-//            List<V> inTree2 = tree2.preOrder(tree2.root);
-//            for (V val : inTree1) {
-//                if (inTree2.contains(val)) {
-//                    response.add(val);
-//                }
-//            }
-//            return response;
-//        }
-//
-//    }
+
+
+    public <V extends Comparable<V>> ArrayList<V> treeIntersection(BinaryTree<V> tree1, BinaryTree<V> tree2) {
+        ArrayList<V> response = new ArrayList<>();
+        if (tree1.getRoot()==null || tree2.getRoot()==null) {
+            return null;
+        } else {
+            List<V> inTree1 = tree1.preOrder(tree1.getRoot());
+            System.out.println(inTree1);
+            List<V> inTree2 = tree2.preOrder(tree2.getRoot());
+            for (V val : inTree1) {
+                if (inTree2.contains(val)) {
+                    response.add(val);
+                }
+            }
+            return response;
+        }
+
+    }
 
 
 
