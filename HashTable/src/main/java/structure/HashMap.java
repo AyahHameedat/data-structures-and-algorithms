@@ -131,4 +131,28 @@ public class HashMap <K, V> {
         return temp;
     }
 
+
+
+    public String repeatedWord(String str) {
+        String inputStr = str.toLowerCase(Locale.ROOT).replace(",", "");
+        String[] listStr = inputStr.split(" ");
+
+        HashMap<String, Integer> repeatedWordList = new HashMap<>();
+
+        for (String s : listStr) {
+            if (repeatedWordList.contain(s)) {
+                // if word exists
+                repeatedWordList.set(s, repeatedWordList.get(s) + 1);
+                // first word repeated
+                return s;
+            } else
+                // insert new word
+                repeatedWordList.set(s, 1);
+        }
+
+
+        return "no repeated word";
+    }
+
+
 }

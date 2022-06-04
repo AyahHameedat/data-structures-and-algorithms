@@ -7,29 +7,28 @@ import structure.HashMap;
 import static org.junit.Assert.*;
 
 public class AppTest {
-    @Test public void testAppHasAGreeting() {
+    @Test
+    public void testAppHasAGreeting() {
         App classUnderTest = new App();
         assertNotNull("app should have a greeting", classUnderTest.getGreeting());
     }
 
 
-
-
     @Test
     public void SettingValuesKeys() {
 
-            HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.set("JAVA", "JAVA");
-            hashMap.set("Amman", "Amman");
-            hashMap.set("Jordan", "Jordan");
-            hashMap.set("J", "J");
-            hashMap.set("Bob", "Bob");
-            hashMap.set("Carl", "Carl");
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.set("JAVA", "JAVA");
+        hashMap.set("Amman", "Amman");
+        hashMap.set("Jordan", "Jordan");
+        hashMap.set("J", "J");
+        hashMap.set("Bob", "Bob");
+        hashMap.set("Carl", "Carl");
 
-            int result = 6;
-            int expected = hashMap.getSize();
+        int result = 6;
+        int expected = hashMap.getSize();
 
-            assertEquals(expected,result);
+        assertEquals(expected, result);
 
     }
 
@@ -45,10 +44,10 @@ public class AppTest {
         hashMap.set("Bob", "Bob");
         hashMap.set("Carl", "Carl");
 
-        String result = "[Jordan, Amman, JAVA, J, Bob, Carl]" ;
+        String result = "[Jordan, Amman, JAVA, J, Bob, Carl]";
         String expected = hashMap.getKeys().toString();
 
-        assertEquals(expected,result);
+        assertEquals(expected, result);
 
     }
 
@@ -66,10 +65,9 @@ public class AppTest {
 //        String result = null ;
         String expected = hashMap.get("aya");
 
-        assertEquals(expected,null);
+        assertEquals(expected, null);
 
     }
-
 
 
     @Test
@@ -83,13 +81,12 @@ public class AppTest {
         hashMap.set("Bob", "Bob");
         hashMap.set("Carl", "Carl");
 
-        boolean result = true ;
+        boolean result = true;
         boolean expected = hashMap.contain("JAVA");
 
-        assertEquals(expected,result);
+        assertEquals(expected, result);
 
     }
-
 
 
     @Test
@@ -103,10 +100,10 @@ public class AppTest {
         hashMap.set("Bob", "Bob");
         hashMap.set("Carl", "Carl");
 
-        boolean result = false ;
+        boolean result = false;
         boolean expected = hashMap.contain("aya");
 
-        assertEquals(expected,result);
+        assertEquals(expected, result);
 
     }
 
@@ -120,7 +117,33 @@ public class AppTest {
         int result = 187265416;
         int expected = hashMap.hashCode();
 
-        assertEquals(expected,result);
+        assertEquals(expected, result);
+
+    }
+
+
+    @Test
+    public void repeatedWord() {
+
+        HashMap<String, String> hashMap = new HashMap<>();
+
+        String result = "a";
+        String expected = hashMap.repeatedWord("Once upon a time, there was a brave princess who...");
+
+        assertEquals(expected, result);
+
+    }
+
+
+    @Test
+    public void noRepeatedWord() {
+
+        HashMap<String, String> hashMap = new HashMap<>();
+
+        String result = "no repeated word";
+        String expected = hashMap.repeatedWord("Once ayah sleep");
+
+        assertEquals(expected, result);
 
     }
 }

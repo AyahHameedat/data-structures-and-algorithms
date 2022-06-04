@@ -22,5 +22,16 @@
 | Space | O(1)        | O(n)                | O(1)       | O(1)            |
 
 
-## API
-<!-- Description of each method publicly available in each of your hashtable -->
+
+
+# repeated word
+### Challenge Summary
+##### Write a function called repeated word that finds the first word to occur more than once in a string.
+
+![](./screenshots/CC31.png)
+
+
+|       | repeated word (String) |
+|-------|------------------------|
+| Time  | O(n)                   |  
+| Space | O(n)                   |
