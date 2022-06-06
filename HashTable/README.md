@@ -52,3 +52,18 @@
 | Time  | O(n)           |  
 | Space | O(n)           |
 
+
+
+
+# Implement a simplified LEFT JOIN for 2 Hashmaps.
+
+### Challenge Summary
+##### Write a function called left join, with two hash maps and Return The returned data structure that holds the results is up to you. It doesn’t need to exactly match the output below, so long as it achieves the LEFT JOIN logic.
+
+![](./screenshots/CC33.png)
+
+|       | simplified LEFT JOIN |
+|-------|----------------------|
+| Time  | O(n)                 |  
+| Space | O(n)                 |
+
