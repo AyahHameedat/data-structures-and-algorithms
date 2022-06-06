@@ -35,3 +35,20 @@
 |-------|------------------------|
 | Time  | O(n)                   |  
 | Space | O(n)                   |
+
+
+
+
+# Find common values in 2 binary trees.
+
+### Challenge Summary
+##### Write a function called tree_intersection that takes two binary trees as parameters.Using your Hashmap implementation as a part of your algorithm, return a set of values found in both trees.
+
+
+![](./screenshots/CC32.png)
+
+|       | common values  |
+|-------|----------------|
+| Time  | O(n)           |  
+| Space | O(n)           |
+

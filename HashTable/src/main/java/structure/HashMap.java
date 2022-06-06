@@ -155,4 +155,25 @@ public class HashMap <K, V> {
     }
 
 
+
+    public <V extends Comparable<V>> ArrayList<V> treeIntersection(BinaryTree<V> tree1, BinaryTree<V> tree2) {
+        List<V> temp = new ArrayList<>();
+        if (tree1.getRoot()==null || tree2.getRoot()==null) {
+            return null;
+        } else {
+            List<V> inTree1 = tree1.preOrder(tree1.getRoot());
+//            System.out.println(inTree1);
+            List<V> inTree2 = tree2.preOrder(tree2.getRoot());
+
+            for (V val : inTree1) {
+                if (inTree2.contains(val)) {
+                    temp.add(val);
+                }
+            }
+            return (ArrayList<V>) temp;
+        }
+
+    }
+
+
 }
