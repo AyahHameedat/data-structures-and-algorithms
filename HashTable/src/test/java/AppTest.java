@@ -211,4 +211,29 @@ public class AppTest {
 
 
     }
+
+
+    @Test
+    public void leftJoin()
+    {
+
+        HashMap<String, String> hashMap = new HashMap<>();
+
+
+        HashMap<String, String> hash1 = new HashMap<>();
+        hash1.set("fond", "enamored");
+        hash1.set("wrath", "anger");
+        hash1.set("diligent", "employed");
+        hash1.set("outfit", "garb");
+        hash1.set("guide", "usher");
+
+        HashMap<String, String> hash2 = new HashMap<>();
+        hash2.set("fond", "averse");
+        hash2.set("something", "delight");
+
+        String result = String.valueOf(hashMap.leftJoin(hash1,hash2));
+        String expected = "[[diligent, employed, null], [wrath, anger, null], [fond, enamored, averse], [guide, usher, null], [outfit, garb, null]]";
+
+        assertEquals(expected, result);
+    }
 }

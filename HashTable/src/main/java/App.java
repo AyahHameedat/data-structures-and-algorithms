@@ -68,6 +68,23 @@ public class App {
 
         System.out.println(hashMap.treeIntersection(BinTree1, BinTree2));
 
+
+        System.out.println("------------LEFT JOIN -----------------");
+
+
+        HashMap<String, String> hash1 = new HashMap<>();
+        hash1.set("fond", "enamored");
+        hash1.set("wrath", "anger");
+        hash1.set("diligent", "employed");
+        hash1.set("outfit", "garb");
+        hash1.set("guide", "usher");
+
+        HashMap<String, String> hash2 = new HashMap<>();
+        hash2.set("fond", "averse");
+        hash2.set("something", "delight");
+
+        System.out.println(hashMap.leftJoin(hash1,hash2));
+
     }
 
 }
