@@ -42,6 +42,7 @@ public class HashMap <K, V> {
 
 
 //        System.out.println("The index of => " + key + " is => " + arrayIndex);
+
         return arrayIndex;
     }
 
@@ -72,8 +73,6 @@ public class HashMap <K, V> {
         while (head != null)
         {
             if(head.getKey().equals(key)){
-        while (head != null) {
-            if (head.getKey().equals(key)) {
                 head.setValue(value);
                 return;
             }
@@ -87,6 +86,23 @@ public class HashMap <K, V> {
 
 
 
+//        if (head == null) {
+//            bucketArray.set(index, newNode);
+//            size++;
+//        } else { // TODO: 5/11/22 We need to check for duplicate keys
+//            // this is logic from class mate
+//            while (this.contain(key)) {
+//                while (head != null) {
+//                    if (head.getKey().equals(key) && head.getHashCode() == hashCode(key)) {
+//                        return;
+//                    }
+//                    head = head.getNext();
+//                }
+//                newNode.setNext(head.getNext());
+//                head.setNext(newNode);
+//                size++;
+//            }
+//        }
         // If load factor goes beyond threshold, then
         // double hash table size
 
@@ -119,6 +135,7 @@ public class HashMap <K, V> {
         }
 
         return null;
+//        return head.getValue();
     }
 
 
@@ -192,7 +209,61 @@ public class HashMap <K, V> {
 
 
 
-  
+    ///////////////////////////////////////////////////
+
+
+
+
+
+//
+//    public ArrayList<ArrayList<String>> leftJoin(HashMap ht1, HashMap ht2) {
+//        ArrayList<ArrayList<String>> result = new ArrayList<>();
+//
+//        Set ht1KeySet  = ht1.keySet();
+//        for (Object key : ht1KeySet) {
+//            ArrayList<String> strings = new ArrayList<>();
+//
+//            strings.add(String.valueOf(key));
+//            strings.add(String.valueOf(ht1.get(key)));
+//
+//            if (ht2.containsKey(key)) {
+//                strings.add(String.valueOf(ht2.get(key)));
+//            } else {
+//                strings.add(null);
+//            }
+//
+//            result.add(strings);
+//        }
+//
+//        return result;
+//    }
+//
+
+
+
+
+    public <V extends Comparable<V>> ArrayList<V> treeIntersection(BinaryTree<V> tree1, BinaryTree<V> tree2) {
+        ArrayList<V> response = new ArrayList<>();
+        if (tree1.getRoot()==null || tree2.getRoot()==null) {
+            return null;
+        } else {
+            List<V> inTree1 = tree1.preOrder(tree1.getRoot());
+            System.out.println(inTree1);
+            List<V> inTree2 = tree2.preOrder(tree2.getRoot());
+            for (V val : inTree1) {
+                if (inTree2.contains(val)) {
+                    response.add(val);
+                }
+            }
+            return response;
+        }
+
+    }
+
+
+
+
+
     public String repeatedWord(String str) {
         String[] inputStr = str.toLowerCase().replace(",", "").split(" ");
         HashMap<String, Integer> setOfWords = new HashMap<>();
@@ -208,93 +279,6 @@ public class HashMap <K, V> {
 
 
         return "NoRepetition";
-    }
-
-
-    }
-
-
-    public List<K> getKeys() {
-        List temp = new ArrayList<>();
-
-        for (int index = 0; index < bucketArray.size(); index++) {
-            HashNode<K, V> head = bucketArray.get(index);
-
-            while (head != null) {
-                temp.add(head.getKey());
-                head = head.getNext();
-            }
-        }
-        return temp;
-    }
-
-
-
-    public String repeatedWord(String str) {
-        String inputStr = str.toLowerCase(Locale.ROOT).replace(",", "");
-        String[] listStr = inputStr.split(" ");
-
-        HashMap<String, Integer> repeatedWordList = new HashMap<>();
-
-        for (String s : listStr) {
-            if (repeatedWordList.contain(s)) {
-                // if word exists
-                repeatedWordList.set(s, repeatedWordList.get(s) + 1);
-                // first word repeated
-                return s;
-            } else
-                // insert new word
-                repeatedWordList.set(s, 1);
-        }
-
-
-        return "no repeated word";
-    }
-
-
-
-    public <V extends Comparable<V>> ArrayList<V> treeIntersection(BinaryTree<V> tree1, BinaryTree<V> tree2) {
-        List<V> temp = new ArrayList<>();
-        if (tree1.getRoot()==null || tree2.getRoot()==null) {
-            return null;
-        } else {
-            List<V> inTree1 = tree1.preOrder(tree1.getRoot());
-//            System.out.println(inTree1);
-            List<V> inTree2 = tree2.preOrder(tree2.getRoot());
-
-            for (V val : inTree1) {
-                if (inTree2.contains(val)) {
-                    temp.add(val);
-                }
-            }
-            return (ArrayList<V>) temp;
-        }
-
-    }
-
-
-
-    public List<ArrayList<String>> leftJoin(HashMap hash1, HashMap hash2) {
-
-        ArrayList<ArrayList<String>> result = new ArrayList<>();
-        List hash1KeySet  =  hash1.getKeys();
-
-        for (Object key : hash1KeySet) {
-            ArrayList<String> strings = new ArrayList<>();
-
-            strings.add(String.valueOf(key));
-            strings.add(String.valueOf(hash1.get(key)));
-
-            if (hash2.contain(key)) {
-                strings.add(String.valueOf(hash2.get(key)));
-            } else {
-                strings.add(null);
-            }
-
-            result.add(strings);
-        }
-
-        return result;
     }
 
 

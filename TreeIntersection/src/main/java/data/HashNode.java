@@ -29,11 +29,6 @@ public class HashNode <K, V> {
         this.next = next;
     }
 
-
-    public void setValue(V value) {
-        this.value = value;
-    }
-
     public Integer getHashCode() {
         return hashCode;
     }
@@ -41,5 +36,4 @@ public class HashNode <K, V> {
     public void setValue(V value) {
         this.value = value;
     }
-
 }
