@@ -194,4 +194,50 @@ public class AppTest {
     }
 
 
+
+    @Test
+    public void testDepthFirstTraverse(){
+        App app = new App();
+        Graph graph = new Graph();
+        graph.addVertex("A");
+        graph.addVertex("B");
+        graph.addVertex("C");
+        graph.addVertex("D");
+        graph.addVertex("E");
+        graph.addVertex("F");
+        graph.addVertex("G");
+        graph.addVertex("H");
+
+        graph.addEdges("A","D");
+        graph.addEdges("A","B");
+        graph.addEdges("B","D");
+        graph.addEdges("B","C");
+        graph.addEdges("C","G");
+        graph.addEdges("D","F");
+        graph.addEdges("D","H");
+        graph.addEdges("D","E");
+        graph.addEdges("F","H");
+
+        List<String> list = new ArrayList<>();
+        list.add("A");
+        list.add("B");
+        list.add("C");
+        list.add("G");
+        list.add("D");
+        list.add("E");
+        list.add("H");
+        list.add("F");
+
+        Set<String> result = graph.depthFirstTraverse("A");
+
+        assertTrue(result.contains(list.get(0)));
+        assertTrue(result.contains(list.get(1)));
+        assertTrue(result.contains(list.get(2)));
+        assertTrue(result.contains(list.get(3)));
+        assertTrue(result.contains(list.get(4)));
+        assertTrue(result.contains(list.get(5)));
+        assertTrue(result.contains(list.get(6)));
+        assertTrue(result.contains(list.get(7)));
+    }
+
 }
