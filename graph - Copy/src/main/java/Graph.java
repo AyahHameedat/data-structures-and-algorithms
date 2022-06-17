@@ -42,10 +42,13 @@ public class Graph {
             return result;
         }
 
+
 //    get neighbors
 
-        public Collection<List<Vertex>> getNeighbors(){
-            return adjVertices.values();
+        public  List<Vertex> getNeighbors(String city1){
+            Vertex vertex = new Vertex(city1);
+
+            return adjVertices.get(vertex);
         }
 
 
@@ -95,37 +98,6 @@ public class Graph {
             return strBuilder.toString();
         }
 
-
-        public String businessTrip (Graph<T> graph, Vertex<T>[] cities)
-        {
-         int cost = 0;
-         boolean flag = false;
-
-            for (Vertex<T> ver: cities) {
-                if(!graph.getVertices().contains(ver))
-                    return "false, $0";
-            }
-
-
-            for (int i = 0; i < cities.length -1; i++) {
-                flag = false;
-                for (Edge<T> e: graph.getNeighbors(cities[i]) {
-
-                    if(e.vertex.value.equals(cities[i+1].value))
-                    {
-                        cost += e.wighet;
-                        flag = true;
-                        break;
-                    }
-                }
-
-                if(!flag)
-                {
-                    return "false, $0";
-                }
-            }
-            return flag + ".$" + cost;
-        }
 
 
 }
