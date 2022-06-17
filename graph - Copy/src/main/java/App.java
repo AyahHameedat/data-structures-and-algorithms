@@ -97,6 +97,11 @@ public class App {
 
         System.out.println(app.businessTrip(citiesGraph, citiesArr3));
 
+
+        System.out.println("---------------------------------CC38---------------------------------");
+
+        System.out.println(graph.depthFirstTraverse("Pandora"));
+
     }
 
 
